@@ -7,6 +7,7 @@ export function request(config) {
     timeout: 10000,
   })
 
+  //   请求拦截
   instance.interceptors.request.use(
     //统一添加token
     (config) => {
@@ -20,6 +21,8 @@ export function request(config) {
       return Promise.reject(err)
     },
   )
+  
+  //   响应拦截
   instance.interceptors.response.use(
     (res) => {
       return res
